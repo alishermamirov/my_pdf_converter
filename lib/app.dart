@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:pdf_converter/logic/image_to_pdf/convert_pdf_bloc.dart';
 import 'package:pdf_converter/logic/select_images/select_images_bloc.dart';
 import 'package:pdf_converter/logic/theme/theme_bloc.dart';
@@ -10,6 +11,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    FlutterNativeSplash.remove();
     return MultiBlocProvider(
       providers: [
         BlocProvider(

@@ -3,10 +3,25 @@ import 'package:pdf_converter/models/category_model.dart';
 import 'package:pdf_converter/presentation/pages/image_to_pdf_screen.dart';
 import 'package:pdf_converter/presentation/widgets/custom_app_bar.dart';
 
-class HomeSceen extends StatelessWidget {
-  HomeSceen({super.key});
-  final GlobalKey<ScaffoldState> _key = GlobalKey(); // Create a key
+import '../../helpers/storage_helper.dart';
 
+class HomeSceen extends StatefulWidget {
+  HomeSceen({super.key});
+
+  @override
+  State<HomeSceen> createState() => _HomeSceenState();
+}
+
+class _HomeSceenState extends State<HomeSceen> {
+  @override
+  void initState() {
+
+
+    StorageHelper.initialize();
+    super.initState();
+  }
+
+  final GlobalKey<ScaffoldState> _key = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

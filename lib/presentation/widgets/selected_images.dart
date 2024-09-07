@@ -45,7 +45,10 @@ class _SelectedImagesState extends State<SelectedImages> {
                 decoration: const InputDecoration(
                   labelText: "Enter file name",
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                  ),
                 ),
               ),
               const SizedBox(

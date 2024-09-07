@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:pdf_converter/app.dart';
-import 'package:pdf_converter/helpers/storage_helper.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await StorageHelper.initialize();
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   runApp(const MyApp());
 }
