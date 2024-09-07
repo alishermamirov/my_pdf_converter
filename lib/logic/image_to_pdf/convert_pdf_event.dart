@@ -19,4 +19,15 @@ class OnConvertImageToPdf extends ConvertPdfEvent {
   List<Object> get props => [title, images];
 }
 
-class ToInitialEvent extends ConvertPdfEvent {}
+class ToInitialEvent extends ConvertPdfEvent {
+  @override
+  List<Object> get props => [];
+}
+
+class OnOpenConvertedPdf extends ConvertPdfEvent {
+  final File file;
+
+  const OnOpenConvertedPdf({required this.file});
+  @override
+  List<Object> get props => [file];
+}

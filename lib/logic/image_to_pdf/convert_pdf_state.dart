@@ -11,7 +11,11 @@ final class ConvertPdfInitial extends ConvertPdfState {}
 
 final class ConvertPdfloading extends ConvertPdfState {}
 
-final class ConvertPdfSucces extends ConvertPdfState {}
+final class ConvertPdfSucces extends ConvertPdfState {
+  final File file;
+  final String title;
+  const ConvertPdfSucces({required this.file, required this.title});
+}
 
 final class ConvertPdfError extends ConvertPdfState {
   final String message;

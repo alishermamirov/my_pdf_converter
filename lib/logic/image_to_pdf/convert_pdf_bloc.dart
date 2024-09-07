@@ -16,12 +16,10 @@ class ConvertPdfBloc extends Bloc<ConvertPdfEvent, ConvertPdfState> {
   ConvertPdfBloc() : super(ConvertPdfInitial()) {
     on<OnConvertImageToPdf>(
       (event, emit) async {
-        print(event.images.length);
-        print(event.title);
-        final pdf = Document();
         emit(ConvertPdfloading());
         try {
-          if (event.images.length > 0) {
+          final pdf = Document();
+          if (event.images.isNotEmpty) {
             for (var i = 0; i < event.images.length; i++) {
               final image = await event.images[i].readAsBytes();
               pdf.addPage(
@@ -49,10 +47,8 @@ class ConvertPdfBloc extends Bloc<ConvertPdfEvent, ConvertPdfState> {
           }
           final file = await saveFile(pdf: pdf, title: event.title);
 
-          await openFile(file);
-          emit(ConvertPdfSucces());
-          await Future.delayed(Duration(seconds: 2));
-          emit(ConvertPdfInitial());
+          await Future.delayed(const Duration(seconds: 1));
+          emit(ConvertPdfSucces(file: file, title: event.title));
         } catch (e) {
           emit(ConvertPdfError(message: e.toString()));
         }
@@ -61,10 +57,10 @@ class ConvertPdfBloc extends Bloc<ConvertPdfEvent, ConvertPdfState> {
     on<ToInitialEvent>((event, emit) async {
       emit(ConvertPdfInitial());
     });
-  }
-  static Future<void> openFile(File file) async {
-    final path = file.path;
-    OpenFile.open(path);
+    on<OnOpenConvertedPdf>((event, emit) async {
+      final path = event.file.path;
+      OpenFile.open(path);
+    });
   }
 
   Future<File> saveFile({

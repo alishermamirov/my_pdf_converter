@@ -3,7 +3,7 @@ import 'package:bouncing_widget/bouncing_widget.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-  final Function() ontap;
+  final Function ontap;
   final String title;
   final Color color;
   final Color textColor;
@@ -21,7 +21,9 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BouncingWidget(
-      onPressed: ontap,
+      onPressed: () {
+        ontap();
+      },
       duration: const Duration(milliseconds: 100),
       scaleFactor: 1.0,
       child: Container(
