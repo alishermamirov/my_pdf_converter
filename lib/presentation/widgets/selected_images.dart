@@ -28,7 +28,6 @@ class _SelectedImagesState extends State<SelectedImages> {
   final _scrollController = ScrollController();
 
   final _gridViewKey = GlobalKey();
- 
 
   void showBottomSheet(BuildContext context, List<File> images) {
     showModalBottomSheet(
@@ -44,7 +43,7 @@ class _SelectedImagesState extends State<SelectedImages> {
               TextField(
                 controller: fileNameController,
                 decoration: const InputDecoration(
-                  labelText: "Fayl nomi",
+                  labelText: "Enter file name",
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(20))),
                 ),
@@ -66,7 +65,7 @@ class _SelectedImagesState extends State<SelectedImages> {
                             );
                       }
                     : () {},
-                title: "Saqlash",
+                title: "Save",
                 color: mainColor,
                 textColor: Colors.white,
                 borderColor: mainColor,
@@ -77,13 +76,14 @@ class _SelectedImagesState extends State<SelectedImages> {
       },
     );
   }
-  
-  List<File> images=[];
+
+  List<File> images = [];
   @override
   void initState() {
-    images=widget.images;
+    images = widget.images;
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -137,7 +137,7 @@ class _SelectedImagesState extends State<SelectedImages> {
                   ontap: () {
                     context.read<SelectImagesBloc>().add(onInitial());
                   },
-                  title: "Bekor qilish",
+                  title: "Cancel",
                   color: Colors.white,
                   textColor: mainColor,
                   borderColor: mainColor,
@@ -151,7 +151,7 @@ class _SelectedImagesState extends State<SelectedImages> {
                   ontap: () {
                     showBottomSheet(context, images);
                   },
-                  title: "Davom etish",
+                  title: "Next",
                   textColor: Colors.white,
                   color: mainColor,
                   borderColor: mainColor,

@@ -19,7 +19,7 @@ class ConvertImages extends StatelessWidget {
           return const LoadingWidget();
         } else if (state is SelectImagesError) {
           return Center(
-            child: Text("Xatolik ${state.message}"),
+            child: Text("Error: ${state.message}"),
           );
         } else if (state is SelectImagesSuccess) {
           List<File> images = state.images;

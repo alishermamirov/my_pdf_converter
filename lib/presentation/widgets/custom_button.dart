@@ -10,13 +10,13 @@ class CustomButton extends StatelessWidget {
   final Color borderColor;
 
   const CustomButton({
-    Key? key,
+    super.key,
     required this.ontap,
     required this.title,
     required this.color,
     required this.textColor,
     required this.borderColor,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

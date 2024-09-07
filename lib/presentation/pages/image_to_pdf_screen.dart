@@ -63,7 +63,7 @@ class _ImageToPdfScreenState extends State<ImageToPdfScreen> {
                               .read<ConvertPdfBloc>()
                               .add(OnOpenConvertedPdf(file: state.file));
                         },
-                        title: "Faylni ochish",
+                        title: "Open file",
                         color: Colors.green,
                         textColor: Colors.white,
                         borderColor: Colors.green,
@@ -75,7 +75,7 @@ class _ImageToPdfScreenState extends State<ImageToPdfScreen> {
                         ontap: () async {
                           ShareHelper.shareFile(state.file, state.title);
                         },
-                        title: "Yuborish",
+                        title: "Share",
                         color: Colors.white,
                         textColor: Colors.green,
                         borderColor: Colors.green,
@@ -89,7 +89,7 @@ class _ImageToPdfScreenState extends State<ImageToPdfScreen> {
             return const ConvertImages();
           } else if (state is ConvertPdfError) {
             return Center(
-              child: Text("Xatolik ${state.message}"),
+              child: Text("Error: ${state.message}"),
             );
           }
           ;

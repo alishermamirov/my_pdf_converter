@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ionicons/ionicons.dart';
 import 'package:pdf_converter/models/category_model.dart';
 import 'package:pdf_converter/presentation/pages/image_to_pdf_screen.dart';
 import 'package:pdf_converter/presentation/widgets/custom_app_bar.dart';
-import 'package:pdf_converter/presentation/widgets/my_drawer.dart';
 
 class HomeSceen extends StatelessWidget {
   HomeSceen({super.key});
@@ -13,19 +11,20 @@ class HomeSceen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _key,
-      drawer: const MyDrawer(),
+      // drawer: const MyDrawer(),
       appBar: customAppBar(
         context: context,
         title: "PDF Converter",
-        leading: IconButton(
-          onPressed: () {
-            _key.currentState!.openDrawer();
-          },
-          icon: const Icon(
-            Ionicons.menu,
-            color: Colors.white,
-          ),
-        ),
+        // leading: IconButton(
+        //   onPressed: () {
+        //     _key.currentState!.openDrawer();
+        //   },
+        //   icon: const Icon(
+        //     Ionicons.menu,
+        //     color: Colors.white,
+        //   ),
+        // ),
+        leading: SizedBox(),
       ),
       body: ListView.builder(
         padding: const EdgeInsets.all(16),
