@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pdf_converter/logic/image_to_pdf/convert_pdf_bloc.dart';
 import 'package:pdf_converter/logic/select_images/select_images_bloc.dart';
+import 'package:pdf_converter/logic/theme/theme_bloc.dart';
 import 'package:pdf_converter/presentation/pages/home_sceen.dart';
 
 class MyApp extends StatelessWidget {
@@ -17,8 +18,11 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => SelectImagesBloc(),
         ),
+        BlocProvider(
+          create: (context) => ThemeBloc(),
+        ),
       ],
-      child:  MaterialApp(
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
         home: HomeSceen(),
       ),
