@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
           create: (context) => SelectImagesBloc(),
         ),
       ],
-      child: const MaterialApp(
+      child:  MaterialApp(
         debugShowCheckedModeBanner: false,
         home: HomeSceen(),
       ),
