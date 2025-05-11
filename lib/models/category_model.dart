@@ -8,10 +8,10 @@ class CategoryModel {
 }
 
 class Categories {
- static List<CategoryModel> categories = [
+  static List<CategoryModel> categories = [
     CategoryModel(
-        title: "Image toPDF",
-        subtitle: "Choose images to create PDF",
+        title: "Rasmni PDF faylga o'tkazish",
+        subtitle: "pdf",
         image: "assets/images/image.png"),
   ];
 }

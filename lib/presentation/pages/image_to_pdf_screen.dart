@@ -32,7 +32,7 @@ class _ImageToPdfScreenState extends State<ImageToPdfScreen> {
       resizeToAvoidBottomInset: false,
       appBar: customAppBar(
         context: context,
-        title: "Image to PDF",
+        title: "Pdf",
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -63,7 +63,7 @@ class _ImageToPdfScreenState extends State<ImageToPdfScreen> {
                               .read<ConvertPdfBloc>()
                               .add(OnOpenConvertedPdf(file: state.file));
                         },
-                        title: "Open file",
+                        title: "Ochish",
                         color: Colors.green,
                         textColor: Colors.white,
                         borderColor: Colors.green,
@@ -75,7 +75,7 @@ class _ImageToPdfScreenState extends State<ImageToPdfScreen> {
                         ontap: () async {
                           ShareHelper.shareFile(state.file, state.title);
                         },
-                        title: "Share",
+                        title: "Yuborish",
                         color: Colors.white,
                         textColor: Colors.green,
                         borderColor: Colors.green,
@@ -89,7 +89,7 @@ class _ImageToPdfScreenState extends State<ImageToPdfScreen> {
             return const ConvertImages();
           } else if (state is ConvertPdfError) {
             return Center(
-              child: Text("Error: ${state.message}"),
+              child: Text("Xatolik: ${state.message}"),
             );
           }
           ;

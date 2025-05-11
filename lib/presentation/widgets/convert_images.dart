@@ -19,7 +19,7 @@ class ConvertImages extends StatelessWidget {
           return const LoadingWidget();
         } else if (state is SelectImagesError) {
           return Center(
-            child: Text("Error: ${state.message}"),
+            child: Text("Xatolik: ${state.message}"),
           );
         } else if (state is SelectImagesSuccess) {
           List<File> images = state.images;
@@ -51,7 +51,7 @@ class ConvertImages extends StatelessWidget {
                   size: 100,
                 ),
                 Text(
-                  "Select image",
+                  "Rasm tanlash",
                   style: TextStyle(
                     fontSize: 24,
                     color: Colors.grey,

@@ -29,10 +29,23 @@ class _SelectedImagesState extends State<SelectedImages> {
 
   final _gridViewKey = GlobalKey();
 
+  void save(BuildContext ctx) {
+    if (fileNameController.text.isNotEmpty) {
+      Navigator.of(ctx).pop();
+
+      context.read<ConvertPdfBloc>().add(
+            OnConvertImageToPdf(
+              title: fileNameController.text.toString(),
+              images: images,
+            ),
+          );
+    }
+  }
+
   void showBottomSheet(BuildContext context, List<File> images) {
     showModalBottomSheet(
       context: context,
-      builder: (context) {
+      builder: (ctx) {
         return Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -43,7 +56,7 @@ class _SelectedImagesState extends State<SelectedImages> {
               TextField(
                 controller: fileNameController,
                 decoration: const InputDecoration(
-                  labelText: "Enter file name",
+                  labelText: "Fayl nomini kiriting",
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(20),
@@ -55,20 +68,11 @@ class _SelectedImagesState extends State<SelectedImages> {
                 height: 30,
               ),
               CustomButton(
-                ontap: fileNameController.text.isNotEmpty
-                    ? () {
-                        FocusScope.of(context).unfocus();
-                        Navigator.pop(context);
-
-                        context.read<ConvertPdfBloc>().add(
-                              OnConvertImageToPdf(
-                                title: fileNameController.text.toString(),
-                                images: images,
-                              ),
-                            );
-                      }
-                    : () {},
-                title: "Save",
+                ontap: () {
+                  FocusScope.of(context).unfocus();
+                  save(ctx);
+                },
+                title: "Saqlash",
                 color: mainColor,
                 textColor: Colors.white,
                 borderColor: mainColor,
@@ -140,7 +144,7 @@ class _SelectedImagesState extends State<SelectedImages> {
                   ontap: () {
                     context.read<SelectImagesBloc>().add(onInitial());
                   },
-                  title: "Cancel",
+                  title: "Bekor qilish",
                   color: Colors.white,
                   textColor: mainColor,
                   borderColor: mainColor,
@@ -154,7 +158,7 @@ class _SelectedImagesState extends State<SelectedImages> {
                   ontap: () {
                     showBottomSheet(context, images);
                   },
-                  title: "Next",
+                  title: "Keyingisi",
                   textColor: Colors.white,
                   color: mainColor,
                   borderColor: mainColor,

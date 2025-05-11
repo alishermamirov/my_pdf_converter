@@ -7,7 +7,7 @@ import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf/widgets.dart';
 
-import '../../constants/pdf_contants.dart';
+import '../../constants/pdf_constants.dart';
 
 part 'convert_pdf_event.dart';
 part 'convert_pdf_state.dart';
